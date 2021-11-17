@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "module": "ES6",
+    "outDir": "./build",
+    "rootDir": "./src",
+    "target": "es6",
+    "skipLibCheck": true,
+    "strict": true
+  }
+}
