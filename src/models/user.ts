@@ -1,5 +1,4 @@
-import mongoose from 'mongoose';
-const { Schema } = mongoose;
+import { Schema, model, Types } from 'mongoose';
 
 interface User {
   name: string;
@@ -7,6 +6,7 @@ interface User {
   password: string;
   avatar?: string;
   dateJoined: number;
+  friends: Types.ObjectId[];
 }
 
 const schema = new Schema<User>({
@@ -15,8 +15,9 @@ const schema = new Schema<User>({
   password: { type: String, required: true },
   avatar: { type: String, required: true },
   dateJoined: { type: Number, required: true, default: Date.now() },
+  friends: [{ type: Schema.Types.ObjectId, ref: 'User' }],
 });
 
-const User = mongoose.model('User', schema);
+const User = model('User', schema);
 
 export default User;
